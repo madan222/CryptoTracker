@@ -40,7 +40,7 @@ private extension NSNumber {
     var formattedCurrencyString: String? {
         /// Construct a NumberFormatter that uses the US Locale and the currency style
         let formatter = NumberFormatter()
-        formatter.locale = Locale(identifier: "en_US")
+        formatter.locale = CurrencyLocale.locale
         formatter.numberStyle = .currency
         
         // Ensure the value is non-nil and we can format it using the numberFormatter, if not return nil

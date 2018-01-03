@@ -17,7 +17,7 @@ enum CurrencyType: String {
     neo = "NEO"
     
     var apiURL: URL? {
-        let apiString = "https://min-api.cryptocompare.com/data/price?fsym=" + rawValue + "&tsyms=USD"
+        let apiString = "https://min-api.cryptocompare.com/data/price?fsym=" + rawValue + "&tsyms=\(CurrencyLocale.code())"
         return URL(string: apiString)
     }
     
@@ -78,7 +78,7 @@ enum CurrencyType: String {
             do {
                 // Unwrap the JSON dictionary and read the USD key which has the value of Ethereum
                 guard let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: Any],
-                    let value = json["USD"] as? NSNumber else {
+                    let value = json[CurrencyLocale.code()] as? NSNumber else {
                         completion(nil)
                         return
                 }

@@ -33,10 +33,10 @@ class CryptoTableViewCell: UITableViewCell {
 
 private extension NSNumber {
     
-    /// Takes an optional NSNumber and converts it to USD String
+    /// Takes an optional NSNumber and converts it to local currency String
     ///
-    /// - Parameter value: The NSNumber to convert to a USD String
-    /// - Returns: The USD String or nil in the case of failure
+    /// - Parameter value: The NSNumber to convert to a local currency String
+    /// - Returns: The local currency String or nil in the case of failure
     var formattedCurrencyString: String? {
         /// Construct a NumberFormatter that uses the US Locale and the currency style
         let formatter = NumberFormatter()

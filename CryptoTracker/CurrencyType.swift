@@ -76,7 +76,7 @@ enum CurrencyType: String {
             }
             
             do {
-                // Unwrap the JSON dictionary and read the USD key which has the value of Ethereum
+                // Unwrap the JSON dictionary and read the local currency code as key which has the value of Ethereum
                 guard let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: Any],
                     let value = json[CurrencyLocale.code()] as? NSNumber else {
                         completion(nil)
